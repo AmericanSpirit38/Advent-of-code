@@ -44,7 +44,18 @@ for i in range (len(toCheck)):
     if not bol:
         res += int(x[len(x)//2])
         print("res + ", x[len(x)//2])
-    # part 2 starts here
+    else:
+        res_dict = {}
+        for item in x:
+            left = 0
+            for i in range(len(x)):
+                if [x[i], item] in lines:
+                    left += 1
+            res_dict.update({item: left})
+        sort_dict = sorted(res_dict.items(), key=lambda x: x[1])
+        res2 += int(sort_dict[len(sort_dict)//2][0])
+
+
 
 
 
